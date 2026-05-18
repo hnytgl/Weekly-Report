@@ -168,7 +168,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import axios from 'axios'
+import axios from '../api/client'
 import { Document } from '@element-plus/icons-vue'
 import { useAuthStore } from '../stores/auth'
 
@@ -529,3 +529,4 @@ export default {
   margin: 0 10px;
 }
 </style>
+

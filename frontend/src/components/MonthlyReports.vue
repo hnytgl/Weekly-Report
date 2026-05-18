@@ -152,7 +152,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import axios from '../api/client'
 import { ElMessage } from 'element-plus'
 import { Plus, MagicStick } from '@element-plus/icons-vue'
 
@@ -363,3 +363,4 @@ export default {
   white-space: pre-wrap;
 }
 </style>
+

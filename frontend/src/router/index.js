@@ -35,11 +35,21 @@ const router = createRouter({
 
 // Navigation guard
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token')
-  const user = JSON.parse(localStorage.getItem('user') || '{}')
+  let token = localStorage.getItem('token')
+  let user = {}
+
+  try {
+    user = JSON.parse(localStorage.getItem('user') || '{}')
+  } catch (error) {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    token = null
+  }
 
   if (to.meta.requiresAuth && !token) {
     next('/login')
+  } else if (to.path === '/login' && token && user.role) {
+    next(user.role === 'manager' ? '/manager' : '/employee')
   } else if (to.meta.role && to.meta.role !== user.role) {
     next(user.role === 'manager' ? '/manager' : '/employee')
   } else {

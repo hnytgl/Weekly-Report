@@ -114,7 +114,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import axios from 'axios'
+import axios from '../api/client'
 import { useAuthStore } from '../stores/auth'
 
 export default {
@@ -311,3 +311,4 @@ export default {
   color: #909399;
 }
 </style>
+

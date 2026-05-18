@@ -297,7 +297,7 @@ import MonthlyReports from '../components/MonthlyReports.vue'
 import AnnualSummary from '../components/AnnualSummary.vue'
 
 import { MagicStick, Refresh, Delete, Plus } from '@element-plus/icons-vue'
-import axios from 'axios'
+import axios from '../api/client'
 
 export default {
   name: 'EmployeeDashboard',
@@ -617,6 +617,7 @@ export default {
               title: monthlyPlan.title,
               description: monthlyPlan.description || '基于年度目标的月度工作计划',
               objectives: monthlyPlan.keyMetrics,
+              tasks: monthlyPlan.originalTasks || monthlyPlan.tasks || [],
               status: 'pending',
               annual_plan_id: annualPlanId  // 添加年度计划关联
             }, {
@@ -903,8 +904,8 @@ export default {
       }
     }
     
-    onMounted(() => {
-      checkAnnualPlan()
+    onMounted(async () => {
+      await checkAnnualPlan()
       if (hasAnnualPlan.value) {
         loadStatistics()
       }
@@ -1342,3 +1343,4 @@ export default {
   color: #666;
 }
 </style>
+

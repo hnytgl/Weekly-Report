@@ -155,7 +155,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import axios from 'axios'
+import axios from '../api/client'
 import { useAuthStore } from '../stores/auth'
 import { MagicStick, Delete, Document } from '@element-plus/icons-vue'
 
@@ -513,3 +513,4 @@ export default {
   margin-bottom: 20px;
 }
 </style>
+

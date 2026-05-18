@@ -19,7 +19,7 @@ Weekly Report Master 是一个基于 AI 的团队工作管理应用，帮助团�
 ## 技术栈
 
 ### 前端
-- Vue 3.4 + Vite 7
+- Vue 3.4 + Vite 6
 - Element Plus 2.5 (UI 组件库)
 - Pinia (状态管理)
 - Vue Router 4.3

@@ -229,7 +229,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Calendar, Document, List, ChatDotRound, MagicStick } from '@element-plus/icons-vue'
-import axios from 'axios'
+import axios from '../api/client'
 import { useAuthStore } from '../stores/auth'
 
 export default {
@@ -678,3 +678,4 @@ export default {
   border-left: 4px solid #67c23a;
 }
 </style>
+

@@ -26,7 +26,7 @@
         </el-form-item>
       </el-form>
       
-      <div class="demo-credentials">
+      <div v-if="showDemoCredentials" class="demo-credentials">
         <el-divider>演示账号</el-divider>
         <p><strong>部门经理:</strong> manager / manager123</p>
         <p><strong>普通员工:</strong> employee / employee123</p>
@@ -54,6 +54,7 @@ export default {
     
     const loading = ref(false)
     const loginFormRef = ref()
+    const showDemoCredentials = import.meta.env.DEV
     
     const rules = {
       username: [
@@ -93,6 +94,7 @@ export default {
       rules,
       loading,
       loginFormRef,
+      showDemoCredentials,
       handleLogin
     }
   }

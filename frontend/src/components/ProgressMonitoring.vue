@@ -162,7 +162,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { User, Check, Clock, Warning } from '@element-plus/icons-vue'
-import axios from 'axios'
+import axios from '../api/client'
 import { useAuthStore } from '../stores/auth'
 
 export default {
@@ -405,3 +405,4 @@ export default {
   margin-left: 8px;
 }
 </style>
+

@@ -90,7 +90,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import axios from '../api/client'
 import { ElMessage } from 'element-plus'
 import { Refresh } from '@element-plus/icons-vue'
 
@@ -306,3 +306,4 @@ export default {
   color: #333;
 }
 </style>
+

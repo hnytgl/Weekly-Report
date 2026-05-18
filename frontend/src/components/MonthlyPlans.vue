@@ -268,7 +268,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import axios from 'axios'
+import axios from '../api/client'
 import { useAuthStore } from '../stores/auth'
 import { MagicStick, Delete } from '@element-plus/icons-vue'
 import { ElMessageBox } from 'element-plus'
@@ -739,3 +739,4 @@ export default {
   color: #333;
 }
 </style>
+

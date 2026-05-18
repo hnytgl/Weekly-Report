@@ -1,12 +1,21 @@
 
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import axios from '../api/client'
 
 const API_URL = '/api'
 
+function getStoredUser() {
+  try {
+    return JSON.parse(localStorage.getItem('user')) || null
+  } catch (error) {
+    localStorage.removeItem('user')
+    return null
+  }
+}
+
 export const useAuthStore = defineStore('auth', {
   state: () => ({
-    user: JSON.parse(localStorage.getItem('user')) || null,
+    user: getStoredUser(),
     token: localStorage.getItem('token') || null
   }),
 
@@ -52,6 +61,18 @@ export const useAuthStore = defineStore('auth', {
       localStorage.removeItem('user')
     },
 
+    syncFromStorage() {
+      const token = localStorage.getItem('token')
+      const storedUser = localStorage.getItem('user')
+
+      this.token = token
+      try {
+        this.user = storedUser ? JSON.parse(storedUser) : null
+      } catch (error) {
+        this.logout()
+      }
+    },
+
     async updatePassword(currentPassword, newPassword) {
       try {
         await axios.put(`${API_URL}/users/password`, {
@@ -66,3 +87,4 @@ export const useAuthStore = defineStore('auth', {
     }
   }
 })
+

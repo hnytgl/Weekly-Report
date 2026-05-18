@@ -159,7 +159,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import axios from '../api/client'
 import { ElMessage } from 'element-plus'
 import { Plus, MagicStick } from '@element-plus/icons-vue'
 
@@ -387,3 +387,4 @@ p {
   line-height: 1.6;
 }
 </style>
+
