@@ -19,7 +19,7 @@ Weekly Report Master 是一个基于 AI 的团队工作管理应用，帮助团�
 ## 技术栈
 
 ### 前端
-- Vue 3.4 + Vite 5
+- Vue 3.4 + Vite 7
 - Element Plus 2.5 (UI 组件库)
 - Pinia (状态管理)
 - Vue Router 4.3
@@ -96,10 +96,10 @@ cd frontend && npm install
 
 ### 2. 配置环境变量
 
-在 `backend` 目录下创建 `.env` 文件：
+复制 `backend/.env.example` 为 `backend/.env`，并修改其中的密钥配置：
 
 ```env
-JWT_SECRET=your-jwt-secret-key
+JWT_SECRET=replace-with-a-long-random-secret
 DEEPSEEK_API_KEY=your-deepseek-api-key
 PORT=3000
 ```
@@ -173,7 +173,8 @@ npm run dev:frontend # 启动前端开发服务器 (端口 5173)
 
 - 确保 DeepSeek API Key 有效以使用 AI 功能
 - 首次运行会自动创建数据库和演示账号
-- 生产环境请修改默认密码和 JWT Secret
+- 生产环境请修改默认密码，并使用高强度随机 JWT Secret
+- 注册员工账号需要使用经理账号登录后调用注册接口
 - 后端服务默认运行在端口 3000
 - 前端开发服务器默认运行在端口 5173
 

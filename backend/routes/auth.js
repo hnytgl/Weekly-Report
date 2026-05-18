@@ -2,6 +2,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { authenticateToken, requireManager } = require('../middleware/auth');
 const router = express.Router();
 
 // Login
@@ -26,7 +27,7 @@ router.post('/login', async (req, res) => {
 
       const token = jwt.sign(
         { userId: user.id, username: user.username, role: user.role },
-        process.env.JWT_SECRET || 'your-secret-key',
+        process.env.JWT_SECRET,
         { expiresIn: '24h' }
       );
 
@@ -45,17 +46,21 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Register
-router.post('/register', async (req, res) => {
-  const { username, password, role, department } = req.body;
+// Register employees (manager only)
+router.post('/register', authenticateToken, requireManager, async (req, res) => {
+  const { username, password, department } = req.body;
   const db = req.db;
+
+  if (!username || !password) {
+    return res.status(400).json({ error: 'Username and password are required' });
+  }
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     
     db.run(
       'INSERT INTO users (username, password, role, department) VALUES (?, ?, ?, ?)',
-      [username, hashedPassword, role || 'employee', department],
+      [username, hashedPassword, 'employee', department],
       function(err) {
         if (err) {
           if (err.code === 'SQLITE_CONSTRAINT') {

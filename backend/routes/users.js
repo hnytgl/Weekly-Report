@@ -1,31 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-
-// Middleware to check authentication
-const authenticateToken = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  if (!token) {
-    return res.status(401).json({ error: 'Access token required' });
-  }
-
-  const jwt = require('jsonwebtoken');
-  jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key', (err, user) => {
-    if (err) return res.status(403).json({ error: 'Invalid token' });
-    req.user = user;
-    next();
-  });
-};
-
-// Middleware to check manager role
-const requireManager = (req, res, next) => {
-  if (req.user.role !== 'manager') {
-    return res.status(403).json({ error: 'Manager access required' });
-  }
-  next();
-};
+const { authenticateToken, requireManager } = require('../middleware/auth');
 
 // Get all users (manager only)
 router.get('/', authenticateToken, requireManager, (req, res) => {

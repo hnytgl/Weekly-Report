@@ -6,7 +6,12 @@ const path = require('path')
 require('dotenv').config()
 
 const app = express()
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
+
+if (!process.env.JWT_SECRET) {
+  console.error('JWT_SECRET is required. Please configure it in backend/.env')
+  process.exit(1)
+}
 
 // 中间件
 app.use(cors())

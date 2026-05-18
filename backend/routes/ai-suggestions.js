@@ -2,6 +2,7 @@
 const express = require('express')
 const axios = require('axios')
 const router = express.Router()
+const { authenticateToken } = require('../middleware/auth')
 
 // Helper function to call DeepSeek API with better error handling
 async function generateAIContent(prompt, maxRetries = 3, maxTokens = 4000) {
@@ -71,7 +72,7 @@ async function generateAIContent(prompt, maxRetries = 3, maxTokens = 4000) {
 }
 
 // AI 年度计划分解
-router.post('/annual-breakdown', async (req, res) => {
+router.post('/annual-breakdown', authenticateToken, async (req, res) => {
   try {
     const { goal, keyMetrics, year } = req.body
     
@@ -180,7 +181,7 @@ router.post('/annual-breakdown', async (req, res) => {
 })
 
 // AI 月度计划分解
-router.post('/monthly-breakdown', async (req, res) => {
+router.post('/monthly-breakdown', authenticateToken, async (req, res) => {
   try {
     const { prompt, timeframe, monthlyPlanId } = req.body
     
@@ -358,7 +359,7 @@ function createDefaultMonthlyPlan(months, prompt) {
 }
 
 // AI 周报总结生成（专门用于生成400字左右的总结）
-router.post('/weekly-report-summary', async (req, res) => {
+router.post('/weekly-report-summary', authenticateToken, async (req, res) => {
   try {
     const { achievements, challenges, next_week_plan } = req.body
     
@@ -404,7 +405,7 @@ router.post('/weekly-report-summary', async (req, res) => {
 })
 
 // AI 工作总结生成
-router.post('/summary-generation', async (req, res) => {
+router.post('/summary-generation', authenticateToken, async (req, res) => {
   try {
     const { type, content, timeframe } = req.body
     
