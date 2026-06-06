@@ -1,5 +1,7 @@
 # Weekly Report Master - 团队工作计划与报告系统
 
+[![CI](https://github.com/hnytgl/weekly-report/actions/workflows/ci.yml/badge.svg)](https://github.com/hnytgl/weekly-report/actions/workflows/ci.yml)
+
 Weekly Report Master 是一个基于 AI 的团队工作管理应用，帮助团队成员制定计划、提交报告，并通过 DeepSeek AI 自动生成工作亮点和建议。
 
 ## 功能特性
