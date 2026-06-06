@@ -194,3 +194,9 @@ npm run dev:frontend # 启动前端开发服务器 (端口 5173)
 ## 许可证
 
 MIT License
+
+## 支持与定制
+
+社区问题和功能建议请通过 GitHub Issues 提交。私有部署、功能定制、
+数据迁移、系统集成和约定响应时间的维护服务，请参阅
+[SUPPORT.md](SUPPORT.md)。
