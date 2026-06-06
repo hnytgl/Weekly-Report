@@ -1,32 +1,31 @@
-# Support
+# 支持说明
 
-## Community Support
+## 社区支持
 
-For reproducible bugs and feature requests, open a GitHub issue and include:
+如果遇到可复现的问题或希望提出功能建议，请创建 GitHub Issue，并尽量提供：
 
-- the affected version or commit
-- operating system and runtime versions
-- steps to reproduce
-- expected and actual behavior
-- relevant logs with secrets removed
+- 受影响的版本号或提交编号
+- 操作系统、Node.js 和 npm 版本
+- 完整的复现步骤
+- 预期行为和实际行为
+- 已删除密钥、个人信息及其他敏感内容的相关日志
 
-Community support is best effort and does not include a response-time
-guarantee.
+社区支持采用尽力而为的方式，不承诺固定响应时间。
 
-## Commercial Support
+## 商业支持
 
-Paid support is available for organizations that need:
+面向有实际部署需求的组织和团队提供以下付费服务：
 
-- private deployment and environment configuration
-- authentication or workflow customization
-- data migration and integration work
-- upgrade assistance and operational troubleshooting
-- agreed response times and maintenance scope
+- 私有化部署和运行环境配置
+- 登录认证、业务流程和界面功能定制
+- 数据迁移及第三方系统集成
+- 版本升级、故障排查和运行维护
+- 约定响应时间和维护范围的技术支持
 
-Contact [hnytgl@163.com](mailto:hnytgl@163.com) with a short description of the
-deployment environment, required outcome, and preferred timeline. Scope,
-deliverables, pricing, and authorization are confirmed in writing before work
-starts.
+请发送邮件至 [hnytgl@163.com](mailto:hnytgl@163.com)，简要说明部署环境、
+期望结果和计划时间。开始工作前，双方将书面确认服务范围、交付内容、
+价格和必要授权。
 
-Never include API keys, passwords, production data, or other secrets in an
-issue or initial email.
+请勿在公开 Issue 或首次联系邮件中提供 API Key、密码、生产数据、
+个人敏感信息或其他机密内容。
+
